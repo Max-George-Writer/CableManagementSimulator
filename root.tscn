@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgijdsp6o6gpw"]
+
+[ext_resource type="Script" path="res://BackGroundGrid.gd" id="1_l2tda"]
+[ext_resource type="Script" path="res://CableLaying.gd" id="2_2cy60"]
+[ext_resource type="Script" path="res://Obstacle.gd" id="3_4sf14"]
+[ext_resource type="Script" path="res://UI.gd" id="3_xrj8h"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("2_2cy60")
+
+[node name="BackgroundGrid" type="Node2D" parent="."]
+script = ExtResource("1_l2tda")
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle1" type="StaticBody2D" parent="Obstacles"]
+script = ExtResource("3_4sf14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle1"]
+
+[node name="Cables" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 160.0
+script = ExtResource("3_xrj8h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_direction = 2
+layout_mode = 1
+offset_right = 300.0
+offset_bottom = 150.0
+
+[node name="LengthCounter" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="CostDisplay" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Warnings" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
